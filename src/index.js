@@ -56,17 +56,25 @@ String.prototype.removeExtraSpaces = function() {
 }
 let test_removeExtraSpaces = "   Hello    world!   " // expected "Hello world!"
 // console.log(test_removeExtraSpaces.removeExtraSpaces())
-// Advanced: Remove all whitespace characters, this includes return, enter, and tabs along with spaces.
+// ~ Advanced ~ 
+// Remove all whitespace characters, this includes return, enter, and tabs along with spaces.
 // 😯
 
 // Challenge 5
 // kebobCase() - Removes extra spaces and replaces spaces with the hyphen "-", and makes all characters lowercase.
 String.prototype.kebobCase = function() {
-  return 'kebobCase'
+  split = this.split(" ")
+  for(i = 0; i < split.length; i++) {
+    if(split[i] == "") {
+      split.splice(i, 1) 
+    }
+  } 
+  return split.join("-").toLowerCase()
 }
 let test_kebobCase = " Hello world " // expected "hello-world"
-console.log(test_kebobCase.kebobCase())
-// Advanced: Remove special characters from the string. For example: "Hello World!" -> "hello-world" (notice the ! is removed)
+// console.log(test_kebobCase.kebobCase())
+// ~ Advanced ~ 
+// Remove special characters from the string. For example: "Hello World!" -> "hello-world" (notice the ! is removed)
 // Strategies:
 // Convert the whole string to lower case with: string.toLowerCase()
 // Split the string into an array of characters with: string.split('')
@@ -106,27 +114,33 @@ String.prototype.camelCase = function() {
 let test_camelCase = "Camel Case" // expected camelCase
 // console.log('Camel', test_camelCase.camelCase())
 
-
-
 // Challenge 8
 // shift() this method will take the first character of a string and move to the end of a string.
-String.prototype.shift = function() {
-  return 'shift'
+// ~ Advanced ~ Include an optional second parameter that sets the number of characters to shift.
+String.prototype.shift = function(num) {
+  if(num == undefined) {
+    charToShift = this[0]
+    substring = this.substring(1)
+  } else {
+    charToShift = this.slice(0, num)
+    substring = this.substring(num)
+  }
+  return substring + charToShift
 }
 let test_shift = "Hello World" // expected "ello WorldH"
-console.log(test_shift.shift())
-// Strategies: Use String.slice()
-// Advanced: Include an optional second parameter that sets the number of characters to shift.
-// Example: shift('foo bar', 3) -> ' barfoo'
-// These functions should all take a string as input and return a string as output.
-
-
+// console.log(test_shift.shift())
 
 // Challenge 9
 // makeHashTag(str) - This function should convert the given string to a hash tag. A hash tag begins with # and no spaces. Each word in the phrase begins with an uppercase letter.
 // If the given string has more than three words pick the three longest and make the hash tag from those.
 String.prototype.makeHashTag = function() {
-  return 'makeHashTag'
+  split = this.split(" ")
+  if(split.length > 3) {
+    charCount = {}
+    split.forEach(char => {charCount[char] = char.length})
+    //let countArr = charCount.map(val => {console.log(val)})
+    return charCount
+  }
 }
 let test_makeHashTag = "Amazing bongo drums for sale" // expected ['#amazing', '#bongo', '#drums']
 console.log(test_makeHashTag.makeHashTag())
@@ -141,4 +155,4 @@ String.prototype.isEmpty = function() {
   return 'isEmpty'
 }
 let test_isEmpty = "Abc def" // expected false 
-console.log(test_isEmpty.isEmpty())
+// console.log(test_isEmpty.isEmpty()) ~~~~ DONT FORGET ME! 
