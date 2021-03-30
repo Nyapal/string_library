@@ -7,7 +7,7 @@ let test_capitalize = "hello world" // expected "Hello world"
 // console.log(test_capitalize.capitalize()) 
 
 // Challenge 2
-// allCaps() - makes all characters uppercase. (this is the same as str.toUpperCase())
+// allCaps() - makes all characters uppercase. 
 String.prototype.allCaps = function() {
   return this.toUpperCase()
 }
@@ -17,7 +17,7 @@ let test_allCaps = "foo bar" // expected "FOO BAR "
 // Challenge 3
 // capitalizeWords() - makes the first character of each word uppercase. Imagine that each word is separated by a space.
 String.prototype.capitalizeWords = function() {
-  split = this.split(" ")
+  let split = this.split(" ")
   for(i = 0; i < split.length; i++) {
     let updated = split[i].capitalize() 
     split[i] = updated
@@ -30,7 +30,7 @@ let test_capitalizeWords = "do all the things" // expected "Do All The Things"
 // capitalizeHeadline() - capitalizes all of the words except the words: the, in, a, an, and, but, for, at, by, from unless one of these words is the first word of the string!
 String.prototype.capitalizeHeadline = function() {
   offLimits = ["the", "in", "a", "an", "and", "but", "for", "at", "by", "from"]
-  split = this.split(" ")
+  let split = this.split(" ")
   split[0] = split[0].capitalize()
   for (i = 1; i < split.length; i++) {
     if (offLimits.includes(split[i]) == false) {
@@ -48,8 +48,9 @@ let test_capitalizeHeadline = "the most foo in bar" // expected "The Most Foo in
 function whitespace(char) {
   return char != "" ? true : false 
 }
+
 String.prototype.removeExtraSpaces = function() {
-  split = this.split(" ")
+  let split = this.split(" ")
   let filtered = split.filter(whitespace)
   return filtered.join(" ")
 }
@@ -78,29 +79,37 @@ console.log(test_kebobCase.kebobCase())
 // Challenge 6
 // snakeCase() - Removes extra space and replaces spaces with an underscore "_", and makes all characters lowercase.
 String.prototype.snakeCase = function() {
-  return 'snakeCase'
+  let split = this.split(" ")
+  for(i = 0; i < split.length; i++) {
+    if(split[i] === "") {
+      split.splice(i, 1)
+    } 
+  }
+  return split.join("_")
 }
 let test_snakeCase = " what the heck" // expected "what_the_heck"
-console.log(test_snakeCase.snakeCase())
-// Strategies:
-// Edit the kebob case function so that it takes the separating character as a parameter. This will allow you to provide the character that replces the space.
-
-
+// console.log(test_snakeCase.snakeCase())
 
 // Challenge 7
 // camelCase() - Lowercases the first character of the first word. Then uppercases the first character of all other words, and removes all spaces.
 String.prototype.camelCase = function() {
-  return 'camelCase'
+  split = this.split(" ")
+  firstWord = split[0]
+  lowerCaseFirstWord = firstWord[0].toLowerCase() + firstWord.substr(1)
+  split[0] = lowerCaseFirstWord
+  for(i = 1; i < split.length; i++) {
+    updated = split[i].capitalize()
+    split[i] = updated
+  } 
+  return split.join("")
 }
 let test_camelCase = "Camel Case" // expected camelCase
-console.log(test_camelCase.camelCase())
-// Strategies:
-// Use the ideas from capitalizeWords() function you wrote earlier. str.split() the string on the ' ' to get and array of words. Then loop starting on index 1 (you could use array.map()) and capitalize each word (use your function for this) then array.join() on the '' (empty string).
+// console.log('Camel', test_camelCase.camelCase())
 
 
 
 // Challenge 8
-// shift() this method will take the first character of a string and move to the end of a string:
+// shift() this method will take the first character of a string and move to the end of a string.
 String.prototype.shift = function() {
   return 'shift'
 }
