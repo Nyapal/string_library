@@ -136,23 +136,25 @@ let test_shift = "Hello World" // expected "ello WorldH"
 String.prototype.makeHashTag = function() {
   split = this.split(" ")
   if(split.length > 3) {
-    charCount = {}
-    split.forEach(char => {charCount[char] = char.length})
-    //let countArr = charCount.map(val => {console.log(val)})
-    return charCount
+    threeLongest = split.sort(function(a, b) { return b.length - a.length }).splice(0, 3)
+    split = threeLongest
   }
+  for(i = 0; i < split.length; i++) {
+    if(split[i] != "") {
+      split[i] = "#" + split[i].toLowerCase()
+    }
+  }
+  return split.filter(hashtag => hashtag != "")
 }
 let test_makeHashTag = "Amazing bongo drums for sale" // expected ['#amazing', '#bongo', '#drums']
-console.log(test_makeHashTag.makeHashTag())
-// Strategies:
-// Split the string into an array of words by splitting on the " ". Check the length. Sort by length. Uppercase each of the first three words and add '#' at the beginning.
-
-
+//console.log(test_makeHashTag.makeHashTag())
 
 // Challenge 10
 // isEmpty(str) - Returns true if the given string is empty or contains only whitespace. White space includes: spaces, line returns, and tabs. These characters can be represented with: \n (new line) \r (carrige return), \t (tab).
 String.prototype.isEmpty = function() {
-  return 'isEmpty'
+  split = this.split(" ")
+  filtered = split.filter(word => word === "")
+  return split.length === filtered.length ? true : false  
 }
 let test_isEmpty = "Abc def" // expected false 
-// console.log(test_isEmpty.isEmpty()) ~~~~ DONT FORGET ME! 
+//console.log(test_isEmpty.isEmpty())
