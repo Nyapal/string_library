@@ -21,13 +21,13 @@
 ## Camel Case
 `str.camelCase()` lowercases the first character of the first word. Then uppercases the first character of all other words, and removes all spaces.
 
-## shift 
-This method will take the first character of a string and move to the end of a string. Optional: second parameter that sets the number of characters to shift.
+## Shift 
+`str.shift()` takes the first character of a string and moves it to the end of the string. Optional second parameter that sets the number of characters to shift.
 
-## makeHashTag(str)
-This function should convert the given string to a hash tag. A hash tag begins with # and no spaces. Each word in the phrase begins with an uppercase letter. If the given string has more than three words pick the three longest and make the hash tag from those.
+## Hash Tag
+`str.makeHashTag()` converts the given string to a hash tag. If the given string has more than three words the three longest will make the hash tag.
 
-## isEmpty(str)
-Returns true if the given string is empty or contains only whitespace. White space includes: spaces, line returns, and tabs.
+## Empty
+`str.isEmpty()` returns true if the given string is empty or contains only whitespace.
 
 ###### FEW 2.1 ~ Assignment 1 
