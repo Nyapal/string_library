@@ -1,5 +1,7 @@
 # String Library 
 
+![npm](https://img.shields.io/npm/v/nyapals/string_library)
+
 ## Capitalize
 `str.capitalize()` makes the first character of a given string uppercase.
 
