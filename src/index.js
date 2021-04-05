@@ -27,6 +27,7 @@ String.prototype.capitalizeWords = function() {
 let test_capitalizeWords = "do all the things" // expected "Do All The Things"
 // console.log(test_capitalizeWords.capitalizeWords())
 // ~ Advanced ~  
+
 // capitalizeHeadline() - capitalizes all of the words except the words: the, in, a, an, and, but, for, at, by, from unless one of these words is the first word of the string!
 String.prototype.capitalizeHeadline = function() {
   offLimits = ["the", "in", "a", "an", "and", "but", "for", "at", "by", "from"]
@@ -157,4 +158,8 @@ String.prototype.isEmpty = function() {
   return split.length === filtered.length ? true : false  
 }
 let test_isEmpty = "Abc def" // expected false 
-//console.log(test_isEmpty.isEmpty())
+//console.log(test_isEmpty.isEmpty())å
+
+module.exports = {
+  capitalize, allCaps, capitalizeWords, capitalizeHeadline, removeExtraSpaces, kebobCase, snakeCase, camelCase, shift, makeHashTag, isEmpty
+}
