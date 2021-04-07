@@ -3,6 +3,10 @@
 String.prototype.capitalize = function() {
   return this[0].toUpperCase() + this.substr(1)
 }
+
+function capitalize() {
+  return this[0].toUpperCase() + this.substr(1)
+}
 let test_capitalize = "hello world" // expected "Hello world"
 // console.log(test_capitalize.capitalize()) 
 
@@ -161,5 +165,6 @@ let test_isEmpty = "Abc def" // expected false
 //console.log(test_isEmpty.isEmpty())å
 
 module.exports = {
-  capitalize, allCaps, capitalizeWords, capitalizeHeadline, removeExtraSpaces, kebobCase, snakeCase, camelCase, shift, makeHashTag, isEmpty
+  capitalize
+  // ,allCaps, capitalizeWords, capitalizeHeadline, removeExtraSpaces, kebobCase, snakeCase, camelCase, shift, makeHashTag, isEmpty
 }
