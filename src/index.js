@@ -1,11 +1,7 @@
 // Challenge 1
 // capitalize() - makes the first character of a given string uppercase.
 String.prototype.capitalize = function() {
-  return this[0].toUpperCase() + this.substr(1)
-}
-
-function capitalize() {
-  return this[0].toUpperCase() + this.substr(1)
+  return this[0].toUpperCase() + this.substr(1).toLowerCase()
 }
 let test_capitalize = "hello world" // expected "Hello world"
 // console.log(test_capitalize.capitalize()) 
@@ -164,7 +160,6 @@ String.prototype.isEmpty = function() {
 let test_isEmpty = "Abc def" // expected false 
 //console.log(test_isEmpty.isEmpty())å
 
-module.exports = {
-  capitalize
-  // ,allCaps, capitalizeWords, capitalizeHeadline, removeExtraSpaces, kebobCase, snakeCase, camelCase, shift, makeHashTag, isEmpty
-}
+// module.exports = {
+//   capitalize ,allCaps, capitalizeWords, capitalizeHeadline, removeExtraSpaces, kebobCase, snakeCase, camelCase, shift, makeHashTag, isEmpty
+// }
